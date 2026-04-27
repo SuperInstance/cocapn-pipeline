@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: cocapn-pipeline
+Version: 0.1.0
+Summary: Fleet data pipeline utilities. Pure Python, zero deps.
+Author-email: cocapn <cocapn@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/cocapn/cocapn-pipeline
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Dynamic: requires-python

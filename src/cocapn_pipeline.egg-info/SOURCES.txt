@@ -1,0 +1,12 @@
+pyproject.toml
+setup.py
+src/cocapn_pipeline/__init__.py
+src/cocapn_pipeline/pipeline.py
+src/cocapn_pipeline/sink.py
+src/cocapn_pipeline/tap.py
+src/cocapn_pipeline/transform.py
+src/cocapn_pipeline.egg-info/PKG-INFO
+src/cocapn_pipeline.egg-info/SOURCES.txt
+src/cocapn_pipeline.egg-info/dependency_links.txt
+src/cocapn_pipeline.egg-info/top_level.txt
+tests/test_pipeline.py
