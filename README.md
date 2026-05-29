@@ -1,29 +1,42 @@
-# 🔄 cocapn-pipeline
+# cocapn-pipeline
 
-Cocapn fleet pipeline utilities — data processing, ETL workflows, and pipeline orchestration.
+Data pipeline framework for the Cocapn Fleet — tap sources, transform data chains, and sink to destinations with a fluent API.
 
-## Install
+## What This Gives You
+
+- **Taps** (sources) — File, URL, PLATO, GitHub taps for pulling data
+- **Transforms** — filter keys, rename keys, add timestamps, deduplicate
+- **Sinks** (destinations) — File, PLATO, JSONL sinks for writing data
+- **Pipeline** — chain taps → transforms → sinks in a single fluent call
+- **PipelineResult** — structured result with row counts and timing
+
+## Quick Start
 
 ```bash
 pip install cocapn-pipeline
+
+from cocapn_pipeline import Pipeline, FileTap, JSONLSink, filter_keys, deduplicate
+
+result = (
+    Pipeline()
+    .tap(FileTap("input.jsonl"))
+    .transform(filter_keys(["id", "name", "score"]))
+    .transform(deduplicate())
+    .sink(JSONLSink("output.jsonl"))
+    .run()
+)
+print(f"Processed {result.rows} rows in {result.duration_ms:.0f}ms")
 ```
 
-## What It Does
+## How It Fits
 
-Pipeline utilities for fleet data processing. ETL workflows, batch processing, and data transformation pipelines.
+The data processing backbone for the Cocapn Fleet. Part of the SuperInstance ecosystem.
 
-### Key Features
-
-- **Pipeline Builder** — Chain processing stages declaratively
-- **Batch Processing** — Process tiles, repos, and data in bulk
-- **ETL Workflows** — Extract from repos, transform, load into PLATO
-- **Error Recovery** — Automatic retry and checkpoint on failures
-
-## Part of the Cocapn Fleet
-
-- [tile-refiner](https://github.com/cocapn/tile-refiner) — Tile refinement
-- [flywheel-engine](https://github.com/cocapn/flywheel-engine) — Compounding intelligence
+Related repos:
+- [cocapn-core](https://github.com/SuperInstance/cocapn-core) — core fleet library
+- [cocapn-plato](https://github.com/SuperInstance/cocapn-plato) — PLATO framework
+- [cocapn-curriculum](https://github.com/SuperInstance/cocapn-curriculum) — curriculum management
 
 ## License
 
-MIT
+Apache 2.0
